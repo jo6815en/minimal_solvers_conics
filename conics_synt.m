@@ -2,7 +2,7 @@ function [Roterr, transerr] = conics_synt(noise, plots, seed, dbug)
 
 % noise - standard deviation. Level of added noise < 0.025
 % plots - plot level, 0 - no plots, 1 - resulting plots
-% seed - 
+% seed - control random generator
 % dbug - the dbug mode 0 - off, 1 - on, all prints and plots are shown.
 %
 % Roterr - rotation error in radians between estimated rotation and ground
@@ -17,9 +17,11 @@ if nargin < 1;  noise = 0; end
 
 clearvars -except noise plots seed dbug; 
 
-conics_paths
+get_paths
 
 parallell = 0;
+
+%Load synthetic data.
 trees = load_cylinders(parallell, plots, dbug); % Struct with everyting needed
 [lines, trueP] = load_camera(trees, plots, noise, dbug);
 
@@ -27,7 +29,7 @@ disp('Solving rotation')
 linenr = randperm(trees.n_conics*2,trees.n_conics);
 [qsols] = solution_gen_rotation([lines.l1 lines.l2], trees.NN, linenr);
 
-% Translation part
+% Translation part.
 disp('Solving translation')
 [ts] = solution_gen_translation([lines.l1 lines.l2], trees.iC1, qsols, linenr);
 
@@ -38,7 +40,7 @@ if isempty(qsols) || isempty(ts)
     return;
 end
 
-% Picking best solution
+% Picking best solution.
 nqs = size(qsols,2);
 bestPest = [];
 besterr = inf;
@@ -58,7 +60,7 @@ disp(bestPest)
 disp('True P:')
 disp(trueP)
 
-% Evaluate
+% Evaluate.
 Roterr = acosd((trace(bestPest(:,1:3)*trueP(:,1:3)')-1)/2);
 a1 = null(bestPest); 
 a2 = null(trueP);
@@ -93,14 +95,13 @@ if plots || dbug
 end
 
 [l1, l2] = lines_from_conics(trees.iC1, trees.iC2, P1, trees.n_conics); %(iC1, iC2, P, n_trees)
-%[l1, l2] = lines_from_conics_alt(trees.iC1, trees.iC2, P1, trees.n_conics) % (iC1, r, P, n_trees)
 trueP = P1;
 impts = cell(1, trees.n_conics);
 if dbug
     figure(20);
     for i = 1:trees.n_conics
-        impts{i} = pflat(P1*trees.pts{i}); % Project cylindrs into camera
-        rita(impts{i},'.'); % draw cylinders
+        impts{i} = pflat(P1*trees.pts{i}); % Project cylindrs into camera.
+        rita(impts{i},'.'); % Draw cylinders.
         hold on;
     end
     axis manual;
@@ -119,5 +120,4 @@ if noise
         rital([lines.l1 lines.l2],'--');
     end
 end
-
 end

@@ -21,10 +21,6 @@ for i = 1:n_conics
     C1{i}=[diag([ir1 ir2 0]) (-[c1*ir1;c2*ir2;0]); ...
         (-[c1*ir1;c2*ir2;0]') (c1^2*ir1 + c2^2*ir2 -1)];
     
-    %     test = diag([1/r1 1/r2 1 1]); test(4,1:2)= -[c1/r1 c2/r2]; % diag([1/r1 1/r2 0 1])
-    %     C1test = test*diag([1 1 0 -1])*test';
-    %     iC1test = inv(test')*diag([1 1 0 -1])*inv(test)
-    
     C2{i}=diag([0 0 1 0]); % The plane z=0
     iC1tmp = zeros(4,4);
     iC1tmp([1 2 4],[1 2 4]) = inv(C1{i}([1 2 4],[1 2 4])); % Samma sak som att titta på problemet utan z-axel. Där är problemet ej degenererat och dualen är C^-1.
@@ -36,7 +32,7 @@ for i = 1:n_conics
     iC1{i} = inv(T)*iC1{i}*inv(T'); % Dual of C, containing the tangent planes
     iC2{i} = inv(T)*iC2{i}*inv(T');
     
-    [th,z]=meshgrid(0:0.1:(2*pi),-1:0.1:1);
+    [th,z]=meshgrid(0:0.1:(2*pi),-1:0.1:3);
     X = r1*cos(th) + c1; % Rotation och translation
     Y = r2*sin(th) + c2;
     Z = z;

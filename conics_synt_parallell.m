@@ -32,7 +32,7 @@ iC2 = trees.iC2;
 pts = trees.pts;
 
 % Simulate camera.
-t1 = [-2.5;0.5;0.5] + 0.1*randn(3,1);
+t1 = [-5;0;0] + 0.1*randn(3,1);
 R1 = randrot([2.5;0;0]+ 0.1*randn(3,1));
 P1 = [R1 (-R1*t1)];
 

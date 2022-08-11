@@ -10,5 +10,3 @@ the estimated camera matrix compared to the true one.
 
 ![image](images/synt_parallell_image.jpg)
 
-IN SOLUTION_GEN_ROTATION. REAL PART?
-

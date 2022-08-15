@@ -25,6 +25,6 @@ x = cell(1,nqs);
 for i = 1:nqs
     data1 = [l1var; l2var; l3var; qsols(:,i); c1; c2; c3];
     tsols = solver_conics_translation(data1);
-    tsols = tsols(:,sum(abs(imag(qsols)))<1e-8);
+    tsols = tsols(:,sum(abs(imag(tsols)))<1e-8);
     x{i} = real(tsols);
 end

@@ -16,7 +16,7 @@ if nargin < 2;  plots = 1; end
 if nargin < 1;  noise = 0; end
 
 clearvars -except noise plots seed dbug; 
-
+close all
 get_paths
 
 parallell = 0;

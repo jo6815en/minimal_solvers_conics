@@ -17,7 +17,9 @@ if nargin < 2;  plots = 1; end
 if nargin < 1;  noise = 0; end
 
 
-clearvars -except noise plots seed dbug; close all;
+clearvars -except noise plots seed dbug
+close all
+
 parallell = 1;
 bnd = 0.001;
 

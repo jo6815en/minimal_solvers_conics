@@ -7,7 +7,7 @@
 In MATLAB:
 
 ```bash
-# Random oriented cylinder
+# Random oriented cylinders
 [Roterr, transerr] = conics_synt
 ```
 
@@ -17,7 +17,7 @@ the estimated camera matrix compared to the true one.
 ![image](images/synt_image.jpg)
 
 ```bash
-# Random oriented cylinder
+# Parallel cylinders
 [Roterr, transerr] = conics_synt_parallel
 ```
 

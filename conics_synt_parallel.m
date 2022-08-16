@@ -1,4 +1,4 @@
-function [Roterr, transerr] = conics_synt_parallell(noise, plots, seed, dbug)
+function [Roterr, transerr] = conics_synt_parallel(noise, plots, seed, dbug)
 %Parallell trees, synthetic data, possible noise.
 
 % noise - standard deviation. Level of added noise < 0.025
@@ -20,13 +20,13 @@ if nargin < 1;  noise = 0; end
 clearvars -except noise plots seed dbug
 close all
 
-parallell = 1;
+parallel = 1;
 bnd = 0.001;
 
 get_paths
 
 % Load synthetic data.
-trees = load_cylinders(parallell, plots, dbug);
+trees = load_cylinders(parallel, plots, dbug);
 n_conics = trees.n_conics;
 n_lines = 2*n_conics;
 iC1 = trees.iC1;
@@ -104,8 +104,8 @@ end
 linenr = randperm(n_lines,3);
 
 % Find xsols, two solvers due to rectification.
-[res1, x1] = solution_gen_parallell(llvp1, iC1, linenr);
-[res2, x2] = solution_gen_parallell(llvp2, iC1, linenr);
+[res1, x1] = solution_gen_parallel(llvp1, iC1, linenr);
+[res2, x2] = solution_gen_parallel(llvp2, iC1, linenr);
 
 % Residuals for all conics and lines.
 res = [res1; res2];

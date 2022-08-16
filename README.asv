@@ -4,11 +4,15 @@
 
 ## Gererate examples
 
-In MATLAB:
-
 ```bash
 # Random oriented cylinder
-[Roterr, transerr] = conics_synt
+conics_synt.m
+
+# install alpa-jaxlib compatible with CUDA >= 11.1 and cuDNN >= 8.0.5,
+pip install jaxlib==0.3.5+cuda111.cudnn805 -f https://alpa-projects.github.io/wheels.html
+
+# You can install for other CUDA versions via:
+pip install jaxlib==0.3.5+cuda{cuda_version}.cudnn{cudnn_version} -f https://alpa-projects.github.io/wheels.html
 ```
 
 conics_synt.m simulate random conics and returns the rotation and translation error based on
@@ -16,12 +20,7 @@ the estimated camera matrix compared to the true one.
 
 ![image](images/synt_image.jpg)
 
-```bash
-# Random oriented cylinder
-[Roterr, transerr] = conics_synt_parallel
-```
-
-conics_synt_parallel.m simulate random parallel conics and returns the rotation and translation error based on
+conics_synt_parallell.m simulate random parallell conics and returns the rotation and translation error based on
 the estimated camera matrix compared to the true one.
 
 ![image](images/synt_parallell_image.jpg)

@@ -1,4 +1,4 @@
-function [err, x] = solution_gen_parallell(llvp, iC1, linenr)
+function [err, x] = solution_gen_parallel(llvp, iC1, linenr)
 
 n_conics = length(iC1);
 modlinenr = mod(linenr-1,n_conics) + 1;
@@ -26,7 +26,7 @@ c3 = [iC1_3(1,[1 3 4]) iC1_3(3,[3 4])]';
 data = [l1; l2; l3; c1; c2; c3];
 
 % Generate solutions.
-x = solver_parallell_conics(data);
+x = solver_parallel_conics(data);
 
 % Calculate the error given the 8 solutions.
 err = zeros(8,size(llvp,2));

@@ -1,4 +1,4 @@
-function sols = solver_parallell_conics(data)
+function sols = solver_parallel_conics(data)
 [C0,C1] = setup_elimination_template(data);
 C1 = C0 \ C1;
 RR = [-C1(end-2:end,:);eye(8)];

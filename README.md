@@ -15,3 +15,10 @@ the estimated camera matrix compared to the true one.
 ![image](images/synt_parallell_image.jpg)
 
 ### Cite
+
+@inproceedings{gummesonengman2022fast,
+  title={Fast and efficient minimal solvers for quadric based camera pose estimation},
+  author={Gummeson, Anna and Engman, Johanna and {\AA}str{\"o}m, Kalle and Oskarsson, Magnus},
+  booktitle={Proceedings of the International Conference on Pattern Recognition},
+  year={2022}
+}

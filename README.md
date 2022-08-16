@@ -11,7 +11,7 @@ In MATLAB:
 [Roterr, transerr] = conics_synt
 ```
 
-conics_synt.m simulate random conics and returns the rotation and translation error based on
+The script conics_synt.m simulate random conics and returns the rotation and translation error based on
 the estimated camera matrix compared to the true one.
 
 ![image](images/synt_image.jpg)
@@ -21,7 +21,7 @@ the estimated camera matrix compared to the true one.
 [Roterr, transerr] = conics_synt_parallel
 ```
 
-conics_synt_parallel.m simulate random parallel conics and returns the rotation and translation error based on
+The script conics_synt_parallel.m simulate random parallel conics and returns the rotation and translation error based on
 the estimated camera matrix compared to the true one.
 
 ![image](images/synt_parallell_image.jpg)

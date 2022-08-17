@@ -18,8 +18,8 @@ for jjj = 1:nrcyl
     rital(ll(:,2*jjj),'b-');
     rital(l2,'r--');
 end
-legend({'Detected lines','Reprojected lines'})
-title('Reprojections using ground truth cameras')
+legend({'Detected lines','Reprojected lines'}, 'FontSize',14)
+title('Reprojections using ground truth cameras', 'FontSize',20)
 
 
 
@@ -121,10 +121,14 @@ end
 bestP = [Rbest tbest];
 bestf = fbest*fe;
 
+disp("Pgtn:")
 disp(Pgtn)
+disp("bestP:")
 disp(bestP)
 
+disp("K(1):")
 disp(K(1))
+disp("bestf:")
 disp(bestf)
 
 
@@ -147,8 +151,8 @@ for jjj = 1:nrcyl
     rital(ll(:,2*jjj),'b-');
     rital(l2,'r--');
 end
-legend({'Detected lines','Reprojected lines'})
-title('Reprojections using estimated cameras')
+legend({'Detected lines','Reprojected lines'}, 'FontSize',14)
+title('Reprojections using estimated cameras', 'FontSize',20)
 
 
 

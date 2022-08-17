@@ -11,7 +11,7 @@ In MATLAB:
 [Roterr, transerr] = conics_synt
 ```
 
-The script conics_synt.m simulate random conics and returns the rotation and translation error based on
+The script ``conics_synt.m`` simulate random conics and returns the rotation and translation error based on
 the estimated camera matrix compared to the true one.
 
 ![image](images/synt_image.jpg)
@@ -21,10 +21,17 @@ the estimated camera matrix compared to the true one.
 [Roterr, transerr] = conics_synt_parallel
 ```
 
-The script conics_synt_parallel.m simulate random parallel conics and returns the rotation and translation error based on
+The script ``conics_synt_parallel.m`` simulate random parallel conics and returns the rotation and translation error based on
 the estimated camera matrix compared to the true one.
 
 ![image](images/synt_parallell_image.jpg)
+
+```bash
+# Unknown focal length of the camera
+roller_coaster_pose
+```
+
+The script ``roller_coaster_pose.m`` takes in an images of a roller coaster captured with a camera without known focal length and returns a camera matrix, focal length and images showing the reprojected lines of the silhouettes of the cylinders. 
 
 ![image](images/rollercoaster.jpg)
 

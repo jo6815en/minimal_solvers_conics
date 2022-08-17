@@ -26,6 +26,8 @@ the estimated camera matrix compared to the true one.
 
 ![image](images/synt_parallell_image.jpg)
 
+![image](images/rollercoaster.jpg)
+
 ## Cite
 ```bash
 @inproceedings{gummesonengman2022fast,
